@@ -17,6 +17,9 @@ def canonical(batch):
         rs["scopeSpans"].sort(key=lambda sc: sc["scope"]["name"])
         for sc in rs["scopeSpans"]:
             sc["spans"].sort(key=lambda sp: sp["spanId"])
+            # FIXME: opentelemetry doesn't render scope attributes, so don't compare them
+            # (we'll just assume that this library renders them correctly)
+            sc["scope"].pop("attributes", None)
 
     return batch
 
