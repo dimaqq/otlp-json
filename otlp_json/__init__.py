@@ -7,15 +7,15 @@ from typing import Any, TYPE_CHECKING
 if TYPE_CHECKING:
     from typing_extensions import TypeAlias
 
-    from opentelemetry.trace import Link
-    from opentelemetry._logs import LogRecord
     from opentelemetry.sdk.trace import ReadableSpan, Event
     from opentelemetry.sdk.resources import Resource
     from opentelemetry.sdk.util.instrumentation import InstrumentationScope
     from opentelemetry.trace.status import Status
 
     _LEAF_VALUE: TypeAlias = "str | int | float | bool"  # TODO: confirm
-    _VALUE: TypeAlias = "_LEAF_VALUE | Sequence[_LEAF_VALUE]"
+    _VALUE: TypeAlias = (
+        "_LEAF_VALUE | Sequence[_LEAF_VALUE] | Mapping[str, _LEAF_VALUE]"
+    )
 
 
 __all__ = [
@@ -79,7 +79,10 @@ def _resource(resource: Resource):
 
 
 def _attributes(
-    thing: Resource | InstrumentationScope | ReadableSpan | Event | Link | LogRecord,
+    thing: Resource
+    | InstrumentationScope
+    | ReadableSpan
+    | Event,  # TODO: | Link | LogRecord
 ) -> dict[str, Any]:
     rv = {"attributes": [], "dropped_attributes_count": 0}
 
