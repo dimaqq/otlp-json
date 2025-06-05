@@ -45,6 +45,8 @@ testing = [
     "pytest ~= 8.3.4",
     "otlp-test-data >= 0.9.3",
 ]
+[tool.uv]
+constraint-dependencies = ["wrapt ~= 1.14.0"]
 
 [build-system]
 requires = ["hatchling"]
