@@ -1,6 +1,6 @@
 [project]
 name = "otlp-json"
-version = "1.0.0"
+version = "1.0.1"
 description = "🐍Lightweight OTEL span to JSON converter, no dependencies, pure Python🐍"
 requires-python = ">=3.8"
 license = {text = "Apache License (2.0)"}
@@ -47,6 +47,7 @@ testing = [
 ]
 [tool.uv]
 constraint-dependencies = ["wrapt ~= 1.14.0"]
+exclude-dependencies = ["grpcio"]
 
 [build-system]
 requires = ["hatchling"]
