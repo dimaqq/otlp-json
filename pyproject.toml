@@ -45,7 +45,8 @@ testing = [
     "pytest ~= 8.3.4",
     "otlp-test-data >= 1.0.2",
 ]
-[tool.uv]
+[ tool.uv]
+constraint-dependencies = ["wrapt ~= 1.14.0; python_version >= '3.11'"]
 exclude-dependencies = ["grpcio"]
 
 [build-system]

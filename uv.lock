@@ -8,6 +8,7 @@ resolution-markers = [
 ]
 
 [manifest]
+constraints = [{ name = "wrapt", marker = "python_full_version >= '3.11'", specifier = "~=1.14.0" }]
 excludes = ["grpcio"]
 
 [[package]]
