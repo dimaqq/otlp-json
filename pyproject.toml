@@ -46,7 +46,10 @@ testing = [
     "otlp-test-data >= 1.0.2",
 ]
 [ tool.uv]
-constraint-dependencies = ["wrapt ~= 1.14.0; python_version >= '3.11'"]
+constraint-dependencies = [
+    "wrapt ~= 1.14.0; python_version >= '3.11'",
+    "protobuf>=6.31.0; python_version >= '3.14'",
+]
 exclude-dependencies = ["grpcio"]
 
 [build-system]
