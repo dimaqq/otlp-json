@@ -35,13 +35,21 @@ class SomeExporter:
   - 4KB Python source
   - ?? metadata
 
-### TODO(doc)
 
-- link to rust library
-- link to urllib sender
-- link to test vector generator
+### Testing
 
-### TODO(features)
+```sh
+uv sync
+uv run pytest
+```
+
+### Links
+
+- Test data generator: https://pypi.org/project/otlp-test-data/
+- Python stdlib-only exporter: https://github.com/canonical/operator/blob/main/tracing/ops_tracing/_export.py#L141-L160
+- Tiny (compiled) extension written in Rust: https://pypi.org/project/otlp-proto
+
+### Features
 
 - Events
 - Links
